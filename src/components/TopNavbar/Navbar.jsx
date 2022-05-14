@@ -1,13 +1,13 @@
 import React from "react";
 import {
-    AiFillFacebook,
-    AiFillGithub,
-    AiFillTwitterCircle,
-    AiFillInstagram,
-    AiFillWechat
-    
-  } from "react-icons/ai";
- import { NavLink } from "react-router-dom";
+  AiFillFacebook,
+  AiFillGithub,
+  AiFillTwitterCircle,
+  AiFillInstagram,
+  AiFillWechat, FcHome, AiOutlineContacts, AiOutlineHome, AiOutlinePicture, AiOutlineTrophy
+
+} from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 import {
   chakra,
   HStack,
@@ -218,6 +218,7 @@ export default function Header() {
       top={0}
       left={0}
       right={0}
+      zIndex ='1000'
       display={mobileNav.isOpen ? "flex" : "none"}
       flexDirection="column"
       p={2}
@@ -226,27 +227,38 @@ export default function Header() {
       bg={bg}
       spacing={3}
       rounded="sm"
-      shadow="sm"
+      shadow="lg"
     >
       <CloseButton
         aria-label="Close menu"
         justifySelf="self-start"
         onClick={mobileNav.onClose}
       />
-      <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-        Dashboard
-      </Button>
-      <Button
-        w="full"
-        variant="solid"
-        colorScheme="brand"
-        leftIcon={<AiOutlineInbox />}
-      >
-        Inbox
-      </Button>
-      <Button w="full" variant="ghost" leftIcon={<BsFillCameraVideoFill />}>
-        Videos
-      </Button>
+      <NavLink exact="true" to="/">
+        <Button w="full" variant="ghost" leftIcon={<AiOutlineHome />}>
+          Home
+        </Button>
+      </NavLink>
+      <NavLink exact="true" to="/templates">
+        <Button w="full" variant="ghost" leftIcon={<AiOutlinePicture />}>
+          Templates
+        </Button>
+      </NavLink>
+      <NavLink exact="true" to="/about">
+        <Button w="full" variant="ghost" leftIcon={<AiOutlineTrophy />}>
+          About Us
+        </Button>
+      </NavLink>
+      <NavLink exact="true" to="/contact">
+        <Button w="full" variant="ghost" leftIcon={<AiOutlineContacts />}>
+          Contact Us
+        </Button>
+      </NavLink>
+
+
+
+
+
     </VStack>
   );
   return (
@@ -273,7 +285,7 @@ export default function Header() {
           <Flex align="flex-start">
             <Link href="/">
               <HStack>
-              <a href='/' style={{textDecoration:"none"}}><img src={Logo} alt='company_logo' width="60px" height="35px"/></a>
+                <a href='/' style={{ textDecoration: "none" }}><img src={Logo} alt='company_logo' width="60px" height="35px" /></a>
               </HStack>
             </Link>
           </Flex>
@@ -312,8 +324,8 @@ export default function Header() {
                 _focus={{ boxShadow: "none" }}
               >
                 <NavLink exact="true" to="/">
-                            Home
-                          </NavLink>
+                  Home
+                </NavLink>
               </Button>
               <Button
                 bg={bg}
@@ -325,8 +337,8 @@ export default function Header() {
                 _focus={{ boxShadow: "none" }}
               >
                 <NavLink exact="true" to="/templates">
-                            Templates
-                          </NavLink>
+                  Templates
+                </NavLink>
               </Button>
               <Button
                 bg={bg}
@@ -338,8 +350,8 @@ export default function Header() {
                 _focus={{ boxShadow: "none" }}
               >
                 <NavLink exact="true" to="/about">
-                            About Us
-                          </NavLink>
+                  About Us
+                </NavLink>
               </Button>
               <Button
                 bg={bg}
@@ -351,8 +363,8 @@ export default function Header() {
                 _focus={{ boxShadow: "none" }}
               >
                 <NavLink exact="true" to="/contact">
-                            Contact Us
-                          </NavLink>
+                  Contact Us
+                </NavLink>
               </Button>
               <Button
                 bg={bg}
@@ -370,65 +382,65 @@ export default function Header() {
 
           </Flex>
           <Flex justify="flex-end" align="center" color="gray.400">
-           
-          <HStack spacing="5" display={{ base: "none", md: "flex" }}>
-                <Link
-                  isExternal
-                  aria-label="Go to Choc UI GitHub page"
-                  href="https://www.facebook.com/VarshServices/"
-                >
-                  <Icon
-                    as={AiFillFacebook}
-                    display="block"
-                    transition="color 0.2s"
-                    w="5"
-                    h="5"
-                    _hover={{ color: "gray.600" }}
-                  />
-                </Link>
-                <Link
-                  isExternal
-                  aria-label="Varsh Twitter"
-                  href="https://twitter.com/VarshServices?t=Tz-Us3n7HYpV1SA_peMfQg&s=08"
-                >
-                  <Icon
-                    as={AiFillTwitterCircle}
-                    display="block"
-                    transition="color 0.2s"
-                    w="5"
-                    h="5"
-                    _hover={{ color: "gray.600" }}
-                  />
-                </Link>
-                <Link
-                  isExternal
-                  aria-label="Go to Varsh InstaGram Page"
-                  href="https://www.instagram.com/varsh_services/"
-                >
-                  <Icon
-                    as={AiFillInstagram}
-                    display="block"
-                    transition="color 0.2s"
-                    w="5"
-                    h="5"
-                    _hover={{ color: "gray.600" }}
-                  />
-                </Link>
-                <Link
-                  isExternal
-                  aria-label="Go to Varsh InstaGram Page"
-                  href="#"
-                >
-                  <Icon
-                    as={AiFillWechat}
-                    display="block"
-                    transition="color 0.2s"
-                    w="5"
-                    h="5"
-                    _hover={{ color: "gray.600" }}
-                  />
-                </Link>
-              </HStack>
+
+            <HStack spacing="5" display={{ base: "none", md: "flex" }}>
+              <Link
+                isExternal
+                aria-label="Go to Choc UI GitHub page"
+                href="https://www.facebook.com/VarshServices/"
+              >
+                <Icon
+                  as={AiFillFacebook}
+                  display="block"
+                  transition="color 0.2s"
+                  w="5"
+                  h="5"
+                  _hover={{ color: "gray.600" }}
+                />
+              </Link>
+              <Link
+                isExternal
+                aria-label="Varsh Twitter"
+                href="https://twitter.com/VarshServices?t=Tz-Us3n7HYpV1SA_peMfQg&s=08"
+              >
+                <Icon
+                  as={AiFillTwitterCircle}
+                  display="block"
+                  transition="color 0.2s"
+                  w="5"
+                  h="5"
+                  _hover={{ color: "gray.600" }}
+                />
+              </Link>
+              <Link
+                isExternal
+                aria-label="Go to Varsh InstaGram Page"
+                href="https://www.instagram.com/varsh_services/"
+              >
+                <Icon
+                  as={AiFillInstagram}
+                  display="block"
+                  transition="color 0.2s"
+                  w="5"
+                  h="5"
+                  _hover={{ color: "gray.600" }}
+                />
+              </Link>
+              <Link
+                isExternal
+                aria-label="Go to Varsh InstaGram Page"
+                href="#"
+              >
+                <Icon
+                  as={AiFillWechat}
+                  display="block"
+                  transition="color 0.2s"
+                  w="5"
+                  h="5"
+                  _hover={{ color: "gray.600" }}
+                />
+              </Link>
+            </HStack>
 
 
             <IconButton
